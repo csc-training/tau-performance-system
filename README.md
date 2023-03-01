@@ -34,10 +34,16 @@ The GUI for **paraprof** can be run using direct X forwarding
 ```
 $ ssh -X <user>@lumi.csc.fi
 ```
+_As there is no X11 forwaring enabled in LUMI slurm, this can only be used to run graphical applications on the login nodes_
 
-Or using the VNC tool, the vnc tools is usually a bit more responsive. 
+Or using the VNC tool, the vnc tools is usually a bit more responsive and can be used on the compute nodes. 
+To start an interactive shell on a compute node run (adjust memory and cpu requirements according to need):
 
-When logged into Lumi (and after enabling the course modules) run:
+```bash
+srun  -p interactive -A <project> --pty -c 1 --mem=6G --time=00:60:00 bash
+```
+
+Then when logged into a Lumi compute node (and after enabling the course modules) run:
 
 ```bash
 $ module load glx-vnc 
@@ -78,9 +84,11 @@ Connect with native (locally installed) vnc client, e.g TigerVNC
 When prompted for a password, use XnhRZMGI
 ```
 
-### Using a browser
+### Connecting
 
 Following the printed instructions and copy pasting the commands:
+
+**Browser**
 
 1. Open a new connection to Lumi (No prompt or welcome message will printed, but the command is still successful): 
 	`ssh -N -L 43741:nid50824160:43741  <user>@lumi.csc.fi`
@@ -91,6 +99,14 @@ Following the printed instructions and copy pasting the commands:
 
 4. Start using paraprof
 ![vnc_tau](https://user-images.githubusercontent.com/40563680/222176439-ebd41e9a-223d-4771-87da-766f8872cfad.png)
+
+**VNC client**
+1. If using a vnc client, run the other port forwarding command:
+	`ssh -N -L 5901:nid50824160:5901  nortamoh@lumi.csc.fi`
+2. Start the vnc client and point it to the correct local port, either using the cli or the gui (here we are using tigervnc)
+	`vncviewer localhost:5901`
+3. Insert the provided password, in our case `XnhRZMGI`
+4. Start using paraprof
 
 
 ### Changing the resolution
