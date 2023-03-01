@@ -34,7 +34,7 @@ The GUI for **paraprof** can be run using direct X forwarding
 ```
 $ ssh -X <user>@lumi.csc.fi
 ```
-_As there is no X11 forwaring enabled in LUMI slurm, this can only be used to run graphical applications on the login nodes_
+_As there is no X11 forwarding enabled in LUMI slurm, this can only be used to run graphical applications on the login nodes_
 
 Or using the VNC tool, the vnc tools is usually a bit more responsive and can be used on the compute nodes. 
 To start an interactive shell on a compute node run (adjust memory and cpu requirements according to need):
