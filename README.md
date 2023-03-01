@@ -4,7 +4,10 @@ Video of the whole process, step by step instructions below.
 
 
 
-https://user-images.githubusercontent.com/40563680/222176733-aef8d743-a8b0-49ee-96d9-beae6204eb30.mp4
+
+https://user-images.githubusercontent.com/40563680/222256648-7ecba3cc-1720-45dd-98ff-9d641d21d06b.mp4
+
+
 
 
 
