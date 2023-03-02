@@ -1,4 +1,4 @@
-# TAU Performance System Workshop on LUMI, using the VNC
+# Using Paraprof GUI with the VNC
 
 Video of the whole process, step by step instructions below. 
 
