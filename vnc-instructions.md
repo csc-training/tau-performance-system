@@ -16,13 +16,13 @@ https://user-images.githubusercontent.com/40563680/222256648-7ecba3cc-1720-45dd-
 After loggin into Lumi using ssh, run:
 
 ```bash
-$ module use /appl/local/csc/courses/tau_prof_march23/modules/
+module use /appl/local/csc/courses/tau_prof_march23/modules/
 ```
 
 After this you can use tau by loading the module:
 
 ```bash
-$ module load tau
+module load tau
 ```
 
 The tau module also provides the **parprof** and **pprof** commands
@@ -35,7 +35,7 @@ The tau module also provides the **parprof** and **pprof** commands
 The GUI for **paraprof** can be run using direct X forwarding 
 
 ```
-$ ssh -X <user>@lumi.csc.fi
+ssh -X <user>@lumi.csc.fi
 ```
 _As there is no X11 forwarding enabled in LUMI slurm, this can only be used to run graphical applications on the login nodes_
 
@@ -49,9 +49,9 @@ srun  -p interactive -A <project> --pty -c 1 --mem=6G --time=00:60:00 bash
 Then when logged into a Lumi compute node (and after enabling the course modules) run:
 
 ```bash
-$ module load glx-vnc 
-$ start-vnc
-$ paraprof
+module load glx-vnc 
+start-vnc
+paraprof
 ```
 
 The `start-vnc` command will print instructions on how to connect to the vnc using either
