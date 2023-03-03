@@ -29,6 +29,33 @@ mkdir -p $USER
 cd $USER
 ```
 
+### Running applications in LUMI
+
+In LUMI, programs need to be executed via the batch job system. Simple job running with 
+8 MPI tasks and 8 GPUs in a single node can be submitted with the following batch job script:
+```
+#!/bin/bash
+#SBATCH --job-name=example
+#SBATCH --account=project_465000424
+#SBATCH --partition=standard-g
+#SBATCH --reservation=tau_training
+#SBATCH --time=00:05:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --gpus-per-node=8
+
+export MPICH_GPU_SUPPORT_ENABLED=1 # needed for applications using GPU aware MPI
+
+srun my_exe
+```
+
+Save the script *e.g.* as `job.sh` and submit it with `sbatch job.sh`. 
+The output of job will be in file `slurm-xxxxx.out`. You can check the status of your jobs with `squeue -u $USER` and kill possible hanging applications with
+`scancel JOBID`.
+
+The reservation `tau_training` is available during the course days and it
+is accessible only for the members of the `project_465000424`.
+
 ### Using TAU
 
 After loggin into Lumi using ssh, run:
@@ -45,30 +72,4 @@ module load tau
 
 For running `paraprof` (GUI for investigating profiles) it is recommended to use VNC, 
 details for setting up VNC are provided in [separate instructions](vnc-instructions.md)
-
-#### Running in LUMI
-
-TODO: update with correct info
-
-In LUMI, programs need to be executed via the batch job system. Simple job running with 4 MPI tasks can be submitted with the following batch job script:
-```
-#!/bin/bash
-#SBATCH --job-name=example
-#SBATCH --account=project_2000745
-#SBATCH --partition=small
-#SBATCH --reservation=mpi_intro
-#SBATCH --time=00:05:00
-#SBATCH --ntasks=4
-
-srun my_mpi_exe
-```
-
-Save the script *e.g.* as `job.sh` and submit it with `sbatch job.sh`. 
-The output of job will be in file `slurm-xxxxx.out`. You can check the status of your jobs with `squeue -u $USER` and kill possible hanging applications with
-`scancel JOBID`.
-
-The reservation `mpi_intro` is available during the course days and it
-is accessible only with the training user accounts.
-
-
 
